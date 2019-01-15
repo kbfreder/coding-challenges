@@ -1,0 +1,3 @@
+Revisit to improve performance
+
+- ZigZag (try visiting by row instead of by character)

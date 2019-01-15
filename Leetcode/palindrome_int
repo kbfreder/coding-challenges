@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Jan 13 18:58:23 2019
+
+@author: kendra
+"""
+
+def palindrome_int_01(x):
+    s = str(x)
+    rev_s = ''
+    for x in range(1,len(s)+1):
+        rev_s += s[-x]
+    if rev_s == s:
+        return True
+    else:
+        return False
+
+
+def palindrome_int_03(x):
+    s = str(x)
+    if s == s[::-1]:
+        return True
+    else:
+        return False
+
+    
+def palindrome_int_02(x):
+    y = 0
+    rev_list = []
+    old_x = x
+    i = 0
+    while x != 0:
+#        y += (x % 10) * 10**i
+        rev_list.append(x % 10)
+        x = x // 10
+        i += 1
+#        print(f'{i}: x={x}, y={y}')
+#    print(i)
+    i -= 1
+    print(rev_list)
+    for d in range(0, len(rev_list)):
+        y += rev_list[d] * 10**i
+        print(y)
+        i -= 1
+    
+    print(y)
+    if y == old_x:
+        return True
+    else:
+        return False
+    
+
+def palindrome_int(x):
+    '''Does not convert int to str'''
+    '''Faster than 73% of Python code'''
+    if x < 0 or (x % 10 == 0 and x != 0):
+        return False
+    elif x < 10:
+        return True
+    
+    y = 0
+
+    while x > y:
+        y = (y * 10) + (x % 10)
+        x = x // 10
+        
+    if y == x or y // 10 == x:
+        return True
+    else:
+        return False

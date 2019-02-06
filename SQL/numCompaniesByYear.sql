@@ -1,3 +1,14 @@
+/*
+https://mode.com/sql-tutorial/sql-datetime-format/
+https://modeanalytics.com/editor/kbfreder/reports/c755d90a1c4c
+
+Write a query that counts the number of companies acquired within 3 years, 5 years,
+and 10 years of being founded (in 3 separate columns). Include a column for total
+companies acquired as well. Group by category and limit to only rows with a founding date.
+
+*/
+
+
 SELECT CASE WHEN x.category_code IS NULL THEN 'No category' ELSE x.category_code END,
   COUNT(*) AS total_companies,
   SUM(CASE WHEN x.time_delta > INTERVAL '3 years' THEN 1 ELSE 0 END) AS years_3,
